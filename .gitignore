@@ -78,3 +78,5 @@ typings/
 package-lock.json
 yarn.lock
 tsconfig.tsbuildinfo
+/bin/make
+/bin/make.tar.gz

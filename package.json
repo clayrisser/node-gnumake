@@ -20,8 +20,9 @@
     "url": "https://codejam.ninja"
   },
   "files": [
-    "lib",
-    "bin"
+    "bin",
+    "install.js",
+    "lib"
   ],
   "main": "lib/index.js",
   "bin": {
@@ -36,6 +37,7 @@
     "clean": "git clean -fXd -e \\!node_modules -e \\!node_modules/**/* && jest --clearCache",
     "clean:purge": "jest --clearCache && git clean -fXd",
     "format": "prettier --write ./**/*.{json,md,scss,yaml,yml,js,jsx,ts,tsx} --ignore-path .gitignore",
+    "install": "node install.js",
     "lint": "npm run format && tsc --allowJs --noEmit && eslint --ext .ts,.tsx ./",
     "lint:fix": "npm run format && tsc --noEmit && eslint --ext .ts,.tsx --fix ./",
     "prepublish": "npm run build",
@@ -45,7 +47,8 @@
   "dependencies": {
     "@babel/polyfill": "^7.8.3",
     "core-js": "^3.6.4",
-    "execa": "^4.0.0"
+    "execa": "^4.0.0",
+    "tar": "^5.0.5"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.3",
@@ -55,6 +58,7 @@
     "@babel/preset-typescript": "^7.8.3",
     "@types/jest": "^24.9.0",
     "@types/node": "^13.1.8",
+    "@types/tar": "^4.0.3",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
     "eslint": "^6.8.0",
