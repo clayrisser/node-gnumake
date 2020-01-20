@@ -4,6 +4,10 @@ import path from 'path';
 import tar from 'tar';
 import { IncomingMessage } from 'http';
 
+const options = {
+  version: '3.81'
+};
+
 async function download(url: string): Promise<IncomingMessage> {
   console.info('downloading ->', url);
   return new Promise((resolve, reject) => {
@@ -31,7 +35,7 @@ async function download(url: string): Promise<IncomingMessage> {
   const binPath = path.resolve(__dirname, '../bin');
   const tarPath = path.resolve(binPath, 'make.tar.gz');
   const stream = await download(
-    `https://github.com/codejamninja/portable-make/releases/download/4.2/make-${process.platform}-4.2.tar.gz`
+    `https://github.com/codejamninja/portable-make/releases/download/${options.version}/make-${process.platform}-${options.version}.tar.gz`
   );
   await new Promise((resolve, reject) => {
     try {
