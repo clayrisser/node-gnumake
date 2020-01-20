@@ -15,12 +15,16 @@ export default async function where(
   let result = null;
   try {
     const ps = await execa(command, [program], { stdio: 'pipe' });
-    if (ps.stdout.length > 0) result = ps.stdout;
+    if (ps.exitCode === 0) result = ps.stdout;
   } catch (err) {
     if (process.platform !== 'win32' && !unixCommand) {
       return where(program, 'which', PATH);
     }
   }
   process.env.PATH = PATH;
+  if (typeof result === 'string') {
+    result = result.split(' ').pop() || null;
+    if (!result?.length) result = null;
+  }
   return result;
 }
