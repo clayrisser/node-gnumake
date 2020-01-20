@@ -10,11 +10,13 @@ export default async function where(
     const binPath = path.resolve(__dirname, '../../.bin');
     process.env.PATH = PATH?.replace(binPath, '');
   }
+  console.log(process.env.PATH);
   const command =
     process.platform === 'win32' ? 'whereis' : unixCommand || 'where';
   let result = null;
   try {
     const ps = await execa(command, [program], { stdio: 'pipe' });
+    console.log(command, [program], ps.exitCode, ps.stdout);
     if (ps.exitCode === 0) result = ps.stdout;
   } catch (err) {
     if (process.platform !== 'win32' && !unixCommand) {
@@ -26,5 +28,6 @@ export default async function where(
     result = result.split(' ').pop() || null;
     if (!result?.length) result = null;
   }
+  console.log('result', result);
   return result;
 }
