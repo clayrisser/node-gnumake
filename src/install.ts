@@ -1,27 +1,13 @@
-import execa from 'execa';
 import fs from 'fs';
 import https from 'https';
 import path from 'path';
 import tar from 'tar';
 import { IncomingMessage } from 'http';
+import where from './where';
 
 const options = {
   version: '3.75'
 };
-
-async function exists(program: string, unixCommand?: string): Promise<boolean> {
-  const command =
-    process.platform === 'win32' ? 'whereis' : unixCommand || 'which';
-  try {
-    const result = await execa(command, [program], { stdio: 'pipe' });
-    return result.exitCode === 0;
-  } catch (err) {
-    if (process.platform !== 'win32' && !unixCommand) {
-      return exists(program, 'where');
-    }
-    return false;
-  }
-}
 
 async function downloadStream(url: string): Promise<IncomingMessage> {
   return new Promise((resolve, reject) => {
@@ -62,7 +48,7 @@ async function download(url: string, outputPath: string): Promise<void> {
 }
 
 async function install() {
-  if (await exists('make')) return;
+  if (await where('make')) return;
   const binPath = path.resolve(__dirname, '../bin');
   const tarPath = path.resolve(binPath, 'make.tar.gz');
   const url = `https://github.com/codejamninja/portable-make/releases/download/${options.version}/make-${process.platform}-${options.version}.tar.gz`;
