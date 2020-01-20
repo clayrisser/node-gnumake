@@ -27,6 +27,7 @@ npm install -g gnumake
 1. Create a Makefile
 
 _Makefile_
+
 ```make
 PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
 ifeq ($(PLATFORM), win32)
@@ -44,6 +45,7 @@ lib:
 2. Reference Makefile from npm scripts
 
 _package.json_
+
 ```json
   "scripts": {
     "build": "make -s build"
