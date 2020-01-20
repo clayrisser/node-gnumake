@@ -48,7 +48,6 @@ async function download(url: string, outputPath: string): Promise<void> {
 }
 
 async function install() {
-  console.log('WHERE', await where('make'));
   if (await where('make')) return;
   const binPath = path.resolve(__dirname, '../bin');
   const tarPath = path.resolve(binPath, 'make.tar.gz');
