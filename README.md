@@ -24,7 +24,30 @@ npm install -g gnumake
 
 ## Usage
 
-[Contribute](https://github.com/codejamninja/gnumake/blob/master/CONTRIBUTING.md) usage docs
+1. Create a Makefile
+
+```make
+PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
+ifeq ($(PLATFORM), win32)
+  SHELL = cmd
+endif
+.EXPORT_ALL_VARIABLES:
+
+.PHONY: build
+build: lib
+lib:
+	-@rm -rf lib || true
+	@babel src -d lib
+```
+
+2. Reference Makefile from npm scripts
+
+_package.json_
+```json
+  "scripts": {
+    "build": "make -s build"
+  }
+```
 
 ## Support
 
