@@ -5,7 +5,7 @@ import tar from 'tar';
 import { IncomingMessage } from 'http';
 
 const options = {
-  version: '3.81'
+  version: '3.75'
 };
 
 async function download(url: string): Promise<IncomingMessage> {
