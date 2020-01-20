@@ -26,6 +26,7 @@ npm install -g gnumake
 
 1. Create a Makefile
 
+_Makefile_
 ```make
 PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
 ifeq ($(PLATFORM), win32)
