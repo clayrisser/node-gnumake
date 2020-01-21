@@ -1,5 +1,4 @@
 import execa from 'execa';
-import path from 'path';
 
 export default async function where(
   program: string,
@@ -7,8 +6,14 @@ export default async function where(
   PATH = process.env.PATH
 ): Promise<string | null> {
   if (!unixCommand) {
-    const binPath = path.resolve(__dirname, '../../.bin');
-    process.env.PATH = PATH?.replace(new RegExp(binPath, 'g'), '');
+    const splitChar = process.platform === 'win32' ? ';' : ':';
+    process.env.PATH = process.env.PATH?.split(splitChar)
+      .reduce((envPaths: string[], envPath: string) => {
+        if (envPath.indexOf('node_modules/.bin')) return envPaths;
+        envPaths.push(envPath);
+        return envPaths;
+      }, [])
+      .join(splitChar);
   }
   const command =
     process.platform === 'win32' ? 'whereis' : unixCommand || 'where';
