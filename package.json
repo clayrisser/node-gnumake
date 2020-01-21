@@ -1,6 +1,6 @@
 {
   "name": "gnumake",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "cross platform gnu make",
   "keywords": [
     "gnumake",
