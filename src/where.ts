@@ -9,7 +9,7 @@ export default async function where(
     const splitChar = process.platform === 'win32' ? ';' : ':';
     process.env.PATH = process.env.PATH?.split(splitChar)
       .reduce((envPaths: string[], envPath: string) => {
-        if (envPath.indexOf('node_modules/.bin')) return envPaths;
+        if (envPath.indexOf('node_modules/.bin') > -1) return envPaths;
         envPaths.push(envPath);
         return envPaths;
       }, [])
