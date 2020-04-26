@@ -6,7 +6,7 @@ export default async function chmod(args: string[] = []) {
   let command = 'chmod';
   if (process.platform === 'win32') {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', `${command}.js`), ...args];
     command = 'node';

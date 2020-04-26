@@ -7,7 +7,7 @@ export default async function grep(args: string[] = []) {
   args = args.filter((arg: string) => arg !== '-E');
   if (process.platform === 'win32') {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', `${command}.js`), ...args];
     command = 'node';

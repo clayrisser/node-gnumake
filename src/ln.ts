@@ -6,7 +6,7 @@ export default async function ln(args: string[] = []) {
   let command = 'ln';
   if (process.platform === 'win32') {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', `${command}.js`), ...args];
     command = 'node';

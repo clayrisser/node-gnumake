@@ -7,7 +7,7 @@ export default async function execChild(args: string[] = []) {
   let command = await where('exec-child')!;
   if (!command) {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', 'exec-child.js'), ...args];
     command = 'node';

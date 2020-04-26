@@ -7,7 +7,7 @@ export default async function tempdir(args: string[] = []) {
   let command = await where('tempdir')!;
   if (!command) {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', 'tempdir.js'), ...args];
     command = 'node';

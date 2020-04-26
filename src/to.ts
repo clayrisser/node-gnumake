@@ -5,7 +5,7 @@ import pkgDir from 'pkg-dir';
 export default async function to(args: string[] = []) {
   const command = 'node';
   const shxPath =
-    (await pkgDir(require.resolve('shx'))) ||
+    (await pkgDir(require.resolve('shx/lib/shx'))) ||
     path.resolve(__dirname, '../node_modules/shx');
   args = [path.resolve(shxPath, 'lib', 'to.js'), ...args];
   const ps = execa(command, args, { stdio: 'inherit' });

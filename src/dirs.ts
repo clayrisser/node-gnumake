@@ -7,7 +7,7 @@ async function dirs(args: string[] = []) {
   let command = await where('dirs')!;
   if (!command) {
     const shxPath =
-      (await pkgDir(require.resolve('shx'))) ||
+      (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
     args = [path.resolve(shxPath, 'lib', 'dirs.js'), ...args];
     command = 'node';
