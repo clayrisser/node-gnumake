@@ -1,15 +1,14 @@
 import execa from 'execa';
 import path from 'path';
 import pkgDir from 'pkg-dir';
-import where from './where';
 
-export default async function execChild(args: string[] = []) {
-  let command = await where('exec-child')!;
-  if (!command) {
+export default async function falseCmd(args: string[] = []) {
+  let command = 'false';
+  if (process.platform === 'win32') {
     const shxPath =
       (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
-    args = [path.resolve(shxPath, 'lib', 'exec-child.js'), ...args];
+    args = [path.resolve(shxPath, 'lib/cli.js'), command, ...args];
     command = 'node';
   }
   const ps = execa(command, args, { stdio: 'inherit' });
@@ -22,5 +21,5 @@ export default async function execChild(args: string[] = []) {
 }
 
 if (require.main === module) {
-  execChild(process.argv.slice(2, process.argv.length)).catch(console.error);
+  falseCmd(process.argv.slice(2, process.argv.length)).catch(console.error);
 }

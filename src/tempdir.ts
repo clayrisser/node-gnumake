@@ -9,7 +9,7 @@ export default async function tempdir(args: string[] = []) {
     const shxPath =
       (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
-    args = [path.resolve(shxPath, 'lib', 'tempdir.js'), ...args];
+    args = [path.resolve(shxPath, 'lib/cli.js'), 'tempdir', ...args];
     command = 'node';
   }
   const ps = execa(command, args, { stdio: 'inherit' });

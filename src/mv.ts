@@ -8,7 +8,7 @@ export default async function mv(args: string[] = []) {
     const shxPath =
       (await pkgDir(require.resolve('shx/lib/shx'))) ||
       path.resolve(__dirname, '../node_modules/shx');
-    args = [path.resolve(shxPath, 'lib', `${command}.js`), ...args];
+    args = [path.resolve(shxPath, 'lib/cli.js'), command, ...args];
     command = 'node';
   }
   const ps = execa(command, args, { stdio: 'inherit' });
