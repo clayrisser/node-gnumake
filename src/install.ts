@@ -6,7 +6,7 @@ import { IncomingMessage } from 'http';
 import where from './where';
 
 const options = {
-  version: '3.75'
+  version: '3.75',
 };
 
 async function downloadStream(url: string): Promise<IncomingMessage> {
@@ -57,7 +57,7 @@ async function install() {
   console.log('extracting ->', tarPath);
   await tar.x({
     C: binPath,
-    file: tarPath
+    file: tarPath,
   });
 }
 
