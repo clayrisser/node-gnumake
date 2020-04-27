@@ -1,6 +1,6 @@
 {
   "name": "gnumake",
-  "version": "0.2.7",
+  "version": "0.3.0",
   "description": "cross platform gnu make",
   "keywords": [
     "gnumake",
@@ -20,36 +20,13 @@
     "url": "https://codejam.ninja"
   },
   "files": [
-    "bin",
+    "gnumake.mk",
     "install.js",
     "lib"
   ],
   "main": "lib/index.js",
   "bin": {
-    "cat": "lib/cat.js",
-    "chmod": "lib/chmod.js",
-    "cp": "lib/cp.js",
-    "error": "lib/error.js",
-    "false": "lib/false.js",
-    "find": "lib/find.js",
-    "grep": "lib/grep.js",
-    "head": "lib/head.js",
-    "ln": "lib/ln.js",
-    "ls": "lib/ls.js",
-    "make": "lib/make.js",
-    "mkdir": "lib/mkdir.js",
-    "mv": "lib/mv.js",
-    "pwd": "lib/pwd.js",
-    "rm": "lib/rm.js",
-    "sed": "lib/sed.js",
-    "sort": "lib/sort.js",
-    "tail": "lib/tail.js",
-    "tempdir": "lib/tempdir.js",
-    "test": "lib/test.js",
-    "touch": "lib/touch.js",
-    "true": "lib/true.js",
-    "uniq": "lib/uniq.js",
-    "which": "lib/which.js"
+    "make": "lib/make.js"
   },
   "repository": {
     "type": "git",
@@ -72,7 +49,6 @@
     "@babel/runtime": "^7.9.2",
     "core-js": "^3.6.5",
     "execa": "^4.0.0",
-    "pkg-dir": "^4.2.0",
     "shx": "^0.3.2",
     "tar": "^6.0.1"
   },
