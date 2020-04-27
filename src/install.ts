@@ -67,9 +67,7 @@ async function enabledSystemBinaries() {
               bins.map((bin: string) =>
                 (() => {
                   const binPath = path.resolve(binDirPath, bin);
-                  if (fs.existsSync(binPath)) {
-                    fs.renameSync(binPath, path.resolve(binDirPath, `_${bin}`));
-                  }
+                  if (fs.existsSync(binPath)) fs.unlinkSync(binPath);
                 })()
               )
             );
