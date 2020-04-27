@@ -1,9 +1,12 @@
 import fs from 'fs';
 import https from 'https';
 import path from 'path';
+import pkgDir from 'pkg-dir';
 import tar from 'tar';
 import { IncomingMessage } from 'http';
 import where from './where';
+
+const pkg = require('../package.json');
 
 const options = {
   version: '3.75',
@@ -47,6 +50,35 @@ async function download(url: string, outputPath: string): Promise<void> {
   });
 }
 
+async function enabledSystemBinaries() {
+  if (process.platform === 'win32') return;
+  await Promise.all(
+    Object.keys(pkg.bin)
+      .filter((bin: string) => bin !== 'make')
+      .map((bin: string) =>
+        (async () => {
+          if (!(await where(bin))) {
+            const binDirPath = path.resolve(
+              (await pkgDir(process.cwd())) || process.cwd(),
+              'node_modules/.bin'
+            );
+            const bins: string[] = [bin, `${bin}.cmd`, `${bin}.pw1`];
+            await Promise.all(
+              bins.map((bin: string) =>
+                (() => {
+                  const binPath = path.resolve(binDirPath, bin);
+                  if (fs.existsSync(binPath)) {
+                    fs.renameSync(binPath, path.resolve(binDirPath, `_${bin}`));
+                  }
+                })()
+              )
+            );
+          }
+        })()
+      )
+  );
+}
+
 async function install() {
   if (await where('make')) return;
   const binPath = path.resolve(__dirname, '../bin');
@@ -60,6 +92,7 @@ async function install() {
     C: binPath,
     file: tarPath,
   });
+  await enabledSystemBinaries();
 }
 
 install().catch(console.error);
