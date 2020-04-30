@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/codejamninja/gnumake.svg?style=social&label=Stars)](https://github.com/codejamninja/gnumake)
 
-> cross platform gnu make
+> cross platform gnu make for nodejs
 
 Please ★ this repo if you found it useful ★ ★ ★
 
@@ -15,7 +15,7 @@ Please ★ this repo if you found it useful ★ ★ ★
 ## Installation
 
 ```sh
-npm install -g gnumake
+npm install --save-dev gnumake
 ```
 
 ## Dependencies
@@ -26,27 +26,27 @@ npm install -g gnumake
 
 1. Create a Makefile
 
-_Makefile_
+    You must include `node_modules/gnumake/gnumake.mk`.
 
-```make
-include node_modules/gnumake/gnumake.mk
+    _Makefile_
+    ```make
+    include node_modules/gnumake/gnumake.mk
 
-.PHONY: build
-build: lib
-lib:
-	-@$(RM) -rf lib || true
-	@babel src -d lib
-```
+    .PHONY: build
+    build: lib
+    lib:
+    	-@$(RM) -rf lib || $(TRUE)
+    	@babel src -d lib
+    ```
 
 2. Reference Makefile from npm scripts
 
-_package.json_
-
-```json
-  "scripts": {
-    "build": "make -s build"
-  }
-```
+    _package.json_
+    ```json
+      "scripts": {
+        "build": "make -s build"
+      }
+    ```
 
 ## Cross Platform Commands
 
@@ -62,11 +62,13 @@ unix commands for cross platform suport on **linux**, **osx** and **windows**.
 | `false`      | `$(FALSE)`    | `echo fail && $(FALSE)`                 |
 | `find`       | `$(FIND)`     | `$(FIND) *.txt`                         |
 | `grep`       | `$(GREP)`     | `$(GREP) ".+\.txt$"`                    |
+| `git `       | `$(GIT)`      | `$(GIT) ls-files`                       |
 | `ln`         | `$(LN)`       | `$(LN) -s hello.txt world.txt`          |
 | `ls`         | `$(LS)`       | `$(LS) -a`                              |
 | `make`       | `$(MAKE)`     | `$(MAKE) -s hello`                      |
 | `mkdir -p`   | `$(MKDIRP)`   | `$(MKDIRP) hello/world`                 |
 | `mv`         | `$(MV)`       | `$(MV) hello world`                     |
+| `npm`        | `$(NPM)`      | `$(NPM) install`                        |
 | `pwd`        | `$(PWD)`      | `$(PWD)`                                |
 | `rm`         | `$(RM)`       | `$(RM) -rf hello`                       |
 | `sed`        | `$(SED)`      | `$(SED) -i "s/hello/world/g" hello.txt` |
@@ -77,10 +79,6 @@ unix commands for cross platform suport on **linux**, **osx** and **windows**.
 ## Support
 
 Submit an [issue](https://github.com/codejamninja/gnumake/issues/new)
-
-## Screenshots
-
-[Contribute](https://github.com/codejamninja/gnumake/blob/master/CONTRIBUTING.md) a screenshot
 
 ## Contributing
 
@@ -99,12 +97,3 @@ Review the [changelog](https://github.com/codejamninja/gnumake/blob/master/CHANG
 ## Credits
 
 - [Jam Risser](https://codejam.ninja) - Author
-
-## Support on Liberapay
-
-A ridiculous amount of coffee ☕ ☕ ☕ was consumed in the process of building this project.
-
-[Add some fuel](https://liberapay.com/codejamninja/donate) if you'd like to keep me going!
-
-[![Liberapay receiving](https://img.shields.io/liberapay/receives/codejamninja.svg?style=flat-square)](https://liberapay.com/codejamninja/donate)
-[![Liberapay patrons](https://img.shields.io/liberapay/patrons/codejamninja.svg?style=flat-square)](https://liberapay.com/codejamninja/donate)
