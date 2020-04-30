@@ -50,28 +50,29 @@ _package.json_
 
 ## Cross Platform Commands
 
-The following commands are supported on linux, osx and windows.
+The following commands should be referenced from make variables instead of the raw
+unix commands for cross platform suport on **linux**, **osx** and **windows**.
 
-`$(CAT)`
-`$(CHMOD)`
-`$(CHMOD)`
-`$(CP)`
-`$(FALSE)`
-`$(FIND)`
-`$(GREP)`
-`$(LN)`
-`$(LS)`
-`$(MAKE)`
-`$(MKDIRP)`
-`$(MV)`
-`$(NULL)`
-`$(PWD)`
-`$(RM)`
-`$(SED)`
-`$(SHELL)`
-`$(TAIL)`
-`$(TOUCH)`
-`$(TRUE)`
+| unix command | make variable | example                                 |
+| -----------  | ------------- | --------------------------------------- |
+| `/dev/null`  | `$(NULL)`     | `echo hello >$(NULL)`                   |
+| `cat`        | `$(CAT)`      | `$(CAT) hello.txt`                      |
+| `chmod`      | `$(CHMOD)`    | `$(CHMOD) hello.txt`                    |
+| `cp`         | `$(CP)`       | `$(CP) -r hello world`                  |
+| `false`      | `$(FALSE)`    | `echo fail && $(FALSE)`                 |
+| `find`       | `$(FIND)`     | `$(FIND) *.txt`                         |
+| `grep`       | `$(GREP)`     | `$(GREP) ".+\.txt$"`                    |
+| `ln`         | `$(LN)`       | `$(LN) -s hello.txt world.txt`          |
+| `ls`         | `$(LS)`       | `$(LS) -a`                              |
+| `make`       | `$(MAKE)`     | `$(MAKE) -s hello`                      |
+| `mkdir -p`   | `$(MKDIRP)`   | `$(MKDIRP) hello/world`                 |
+| `mv`         | `$(MV)`       | `$(MV) hello world`                     |
+| `pwd`        | `$(PWD)`      | `$(PWD)`                                |
+| `rm`         | `$(RM)`       | `$(RM) -rf hello`                       |
+| `sed`        | `$(SED)`      | `$(SED) -i "s/hello/world/g" hello.txt` |
+| `tail`       | `$(TAIL)`     | `$(TAIL) -f hello.log`                  |
+| `touch`      | `$(TOUCH)`    | `$(TOUCH) hello.txt`                    |
+| `true`       | `$(TRUE)`     | `echo success && $(TRUE)`               |
 
 ## Support
 
