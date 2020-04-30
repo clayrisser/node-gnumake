@@ -26,27 +26,27 @@ npm install -g gnumake
 
 1. Create a Makefile
 
-_Makefile_
+    _Makefile_
 
-```make
-include node_modules/gnumake/gnumake.mk
+    ```make
+    include node_modules/gnumake/gnumake.mk
 
-.PHONY: build
-build: lib
-lib:
-	-@$(RM) -rf lib || $(TRUE)
-	@babel src -d lib
+    .PHONY: build
+    build: lib
+    lib:
+    	-@$(RM) -rf lib || $(TRUE)
+    	@babel src -d lib
 ```
 
 2. Reference Makefile from npm scripts
 
-_package.json_
+    _package.json_
 
-```json
-  "scripts": {
-    "build": "make -s build"
-  }
-```
+    ```json
+      "scripts": {
+        "build": "make -s build"
+      }
+    ```
 
 ## Cross Platform Commands
 
