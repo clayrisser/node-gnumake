@@ -34,7 +34,7 @@ include node_modules/gnumake/gnumake.mk
 .PHONY: build
 build: lib
 lib:
-	-@$(RM) -rf lib || true
+	-@$(RM) -rf lib || $(TRUE)
 	@babel src -d lib
 ```
 
