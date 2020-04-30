@@ -15,7 +15,7 @@ Please ★ this repo if you found it useful ★ ★ ★
 ## Installation
 
 ```sh
-npm install -g gnumake
+npm install --save-dev gnumake
 ```
 
 ## Dependencies
