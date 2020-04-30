@@ -58,6 +58,7 @@ unix commands for cross platform suport on **linux**, **osx** and **windows**.
 | `/dev/null`  | `$(NULL)`     | `echo hello >$(NULL)`                   |
 | `cat`        | `$(CAT)`      | `$(CAT) hello.txt`                      |
 | `chmod`      | `$(CHMOD)`    | `$(CHMOD) hello.txt`                    |
+| `cd`         | `$(CD)`       | `$(CD) hello`                           |
 | `cp`         | `$(CP)`       | `$(CP) -r hello world`                  |
 | `false`      | `$(FALSE)`    | `echo fail && $(FALSE)`                 |
 | `find`       | `$(FIND)`     | `$(FIND) *.txt`                         |
