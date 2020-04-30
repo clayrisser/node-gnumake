@@ -62,11 +62,13 @@ unix commands for cross platform suport on **linux**, **osx** and **windows**.
 | `false`      | `$(FALSE)`    | `echo fail && $(FALSE)`                 |
 | `find`       | `$(FIND)`     | `$(FIND) *.txt`                         |
 | `grep`       | `$(GREP)`     | `$(GREP) ".+\.txt$"`                    |
+| `git `       | `$(GIT)`      | `$(GIT) ls-files`                       |
 | `ln`         | `$(LN)`       | `$(LN) -s hello.txt world.txt`          |
 | `ls`         | `$(LS)`       | `$(LS) -a`                              |
 | `make`       | `$(MAKE)`     | `$(MAKE) -s hello`                      |
 | `mkdir -p`   | `$(MKDIRP)`   | `$(MKDIRP) hello/world`                 |
 | `mv`         | `$(MV)`       | `$(MV) hello world`                     |
+| `npm`        | `$(NPM)`      | `$(NPM) install`                        |
 | `pwd`        | `$(PWD)`      | `$(PWD)`                                |
 | `rm`         | `$(RM)`       | `$(RM) -rf hello`                       |
 | `sed`        | `$(SED)`      | `$(SED) -i "s/hello/world/g" hello.txt` |
