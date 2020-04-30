@@ -2,7 +2,7 @@
 
 [![GitHub stars](https://img.shields.io/github/stars/codejamninja/gnumake.svg?style=social&label=Stars)](https://github.com/codejamninja/gnumake)
 
-> cross platform gnu make
+> cross platform gnu make for nodejs
 
 Please ★ this repo if you found it useful ★ ★ ★
 
@@ -26,8 +26,9 @@ npm install -g gnumake
 
 1. Create a Makefile
 
-    _Makefile_
+    You must include `node_modules/gnumake/gnumake.mk`.
 
+    _Makefile_
     ```make
     include node_modules/gnumake/gnumake.mk
 
@@ -41,7 +42,6 @@ npm install -g gnumake
 2. Reference Makefile from npm scripts
 
     _package.json_
-
     ```json
       "scripts": {
         "build": "make -s build"
@@ -78,10 +78,6 @@ unix commands for cross platform suport on **linux**, **osx** and **windows**.
 
 Submit an [issue](https://github.com/codejamninja/gnumake/issues/new)
 
-## Screenshots
-
-[Contribute](https://github.com/codejamninja/gnumake/blob/master/CONTRIBUTING.md) a screenshot
-
 ## Contributing
 
 Review the [guidelines for contributing](https://github.com/codejamninja/gnumake/blob/master/CONTRIBUTING.md)
@@ -99,12 +95,3 @@ Review the [changelog](https://github.com/codejamninja/gnumake/blob/master/CHANG
 ## Credits
 
 - [Jam Risser](https://codejam.ninja) - Author
-
-## Support on Liberapay
-
-A ridiculous amount of coffee ☕ ☕ ☕ was consumed in the process of building this project.
-
-[Add some fuel](https://liberapay.com/codejamninja/donate) if you'd like to keep me going!
-
-[![Liberapay receiving](https://img.shields.io/liberapay/receives/codejamninja.svg?style=flat-square)](https://liberapay.com/codejamninja/donate)
-[![Liberapay patrons](https://img.shields.io/liberapay/patrons/codejamninja.svg?style=flat-square)](https://liberapay.com/codejamninja/donate)
