@@ -36,7 +36,7 @@ npm install -g gnumake
     lib:
     	-@$(RM) -rf lib || $(TRUE)
     	@babel src -d lib
-```
+    ```
 
 2. Reference Makefile from npm scripts
 
