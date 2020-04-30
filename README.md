@@ -29,16 +29,12 @@ npm install -g gnumake
 _Makefile_
 
 ```make
-PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
-ifeq ($(PLATFORM), win32)
-  SHELL = cmd
-endif
-.EXPORT_ALL_VARIABLES:
+include node_modules/gnumake/gnumake.mk
 
 .PHONY: build
 build: lib
 lib:
-	-@rm -rf lib || true
+	-@$(RM) -rf lib || true
 	@babel src -d lib
 ```
 
@@ -51,6 +47,31 @@ _package.json_
     "build": "make -s build"
   }
 ```
+
+## Cross Platform Commands
+
+The following commands are supported on linux, osx and windows.
+
+`$(CAT)`
+`$(CHMOD)`
+`$(CHMOD)`
+`$(CP)`
+`$(FALSE)`
+`$(FIND)`
+`$(GREP)`
+`$(LN)`
+`$(LS)`
+`$(MAKE)`
+`$(MKDIRP)`
+`$(MV)`
+`$(NULL)`
+`$(PWD)`
+`$(RM)`
+`$(SED)`
+`$(SHELL)`
+`$(TAIL)`
+`$(TOUCH)`
+`$(TRUE)`
 
 ## Support
 
