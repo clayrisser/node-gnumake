@@ -1,25 +1,28 @@
 PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
+ifeq ($(SHX),)
+SHX := node_modules/.bin/shx
+endif
 
 ifeq ($(PLATFORM), win32)
-	CAT := shx cat
-	CHMOD := shx chmod
-	CP := shx cp
-	FALSE := shx false
-	FIND := shx find
-	GREP := shx grep
-	LN := shx ln
-	LS := shx ls
+	CAT := $(SHX) cat
+	CHMOD := $(SHX) chmod
+	CP := $(SHX) cp
+	FALSE := $(SHX) false
+	FIND := $(SHX) find
+	GREP := $(SHX) grep
+	LN := $(SHX) ln
+	LS := $(SHX) ls
 	MAKE = make
-	MKDIRP := shx mkdir
-	MV := shx mv
+	MKDIRP := $(SHX) mkdir
+	MV := $(SHX) mv
 	NULL := nul
-	PWD := shx pwd
-	RM := shx rm
-	SED := shx sed
+	PWD := $(SHX) pwd
+	RM := $(SHX) rm
+	SED := $(SHX) sed
 	SHELL = cmd.exe
-	TAIL := shx tail
-	TOUCH := shx touch
-	TRUE := shx true
+	TAIL := $(SHX) tail
+	TOUCH := $(SHX) touch
+	TRUE := $(SHX) true
 else
 	CAT := cat
 	CHMOD := chmod
