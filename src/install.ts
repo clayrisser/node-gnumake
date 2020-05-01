@@ -51,7 +51,6 @@ async function install() {
   if (await where('make')) return;
   const binPath = path.resolve(__dirname, '../bin');
   const tarPath = path.resolve(binPath, 'make.tar.gz');
-  fs.mkdirSync(binPath);
   const url = `https://github.com/codejamninja/portable-make/releases/download/${options.version}/make-${process.platform}-${options.version}.tar.gz`;
   process.stdout.write(`downloading -> ${url}\n`);
   await download(url, tarPath);

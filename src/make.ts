@@ -26,7 +26,3 @@ export default async function make(args: string[] = []) {
     throw err;
   }
 }
-
-if (require.main === module) {
-  make(process.argv.slice(2, process.argv.length)).catch(console.error);
-}

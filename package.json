@@ -1,6 +1,6 @@
 {
   "name": "gnumake",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "description": "cross platform gnu make",
   "keywords": [
     "gnumake",
@@ -20,13 +20,14 @@
     "url": "https://codejam.ninja"
   },
   "files": [
+    "bin",
     "gnumake.mk",
     "install.js",
     "lib"
   ],
   "main": "lib/index.js",
   "bin": {
-    "make": "lib/make.js"
+    "make": "bin/make.js"
   },
   "repository": {
     "type": "git",
