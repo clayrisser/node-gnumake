@@ -1,7 +1,5 @@
 PLATFORM := $(shell node -e "process.stdout.write(process.platform)")
-ifeq ($(SHX),)
 SHX := node_modules/.bin/shx
-endif
 
 ifeq ($(PLATFORM), win32)
 	CAT := $(SHX) cat
