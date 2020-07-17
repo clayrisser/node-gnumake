@@ -39,6 +39,7 @@ else
 	TAIL := tail
 	TOUCH := touch
 	TRUE := true
+  SHELL := $(shell bash --version >$(NULL) 2>&1 && echo bash|| echo sh)
 endif
 
 CD := cd
