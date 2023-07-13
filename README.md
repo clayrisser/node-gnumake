@@ -4,6 +4,8 @@
 
 > cross platform gnu make for nodejs
 
+![](assets/node-gnumake.png)
+
 Please ★ this repo if you found it useful ★ ★ ★
 
 ## Features
